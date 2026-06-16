@@ -35,6 +35,7 @@ pl-profile-kit/
 |---|---|---|
 | `src/data/profile.ts` | Canonical profile content, social links, and SEO defaults | Editors and AI tools |
 | `src/components/ProfileButton.astro` | Reusable social/action button with Tabler icon support | Editors and AI tools |
+| `src/components/ProfileMedia.astro` | Avatar/poster media with hover-only video behavior | Editors and AI tools |
 | `src/pages/index.astro` | Main profile page | Readers |
 | `src/content/posts/` | Optional blog/newsletter content | Readers and editors |
 | `src/pages/og.png.ts` | Generated Open Graph image | Social platforms |

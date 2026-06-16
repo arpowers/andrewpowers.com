@@ -1,0 +1,62 @@
+---
+import type { ProfileSite } from '@/data/profile'
+
+export interface Props {
+  profile: ProfileSite
+}
+
+const { profile } = Astro.props
+const video = profile.videoAvatar
+---
+
+<div
+  class="group relative h-full w-full"
+  data-hover-media={video ? 'true' : undefined}
+>
+  <img
+    src={profile.avatar.src}
+    alt={profile.avatar.alt}
+    class="h-full w-full object-cover"
+    draggable="false"
+  />
+  {video && (
+    <video
+      class="profile-hover-video absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
+      data-hover-video
+      src={`${video.src}#t=0.1`}
+      poster={video.poster}
+      aria-label={video.label}
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      tabindex="-1"
+    ></video>
+  )}
+</div>
+
+<script>
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
+  if (canHover) {
+    for (const wrapper of document.querySelectorAll<HTMLElement>('[data-hover-media]')) {
+      const video = wrapper.querySelector<HTMLVideoElement>('[data-hover-video]')
+      if (!video)
+        continue
+
+      video.controls = false
+      video.muted = true
+      video.setAttribute('muted', '')
+
+      wrapper.addEventListener('mouseenter', () => {
+        video.currentTime = 0
+        void video.play().catch(() => {})
+      })
+
+      wrapper.addEventListener('mouseleave', () => {
+        video.pause()
+        video.currentTime = 0
+      })
+    }
+  }
+</script>

@@ -1,6 +1,6 @@
-# Profile Site
+# Andrew Powers
 
-This is a small personal profile site generated from PL Profile Kit.
+Personal profile site for Andrew Powers, founder and CEO of PageLines.
 
 Primary content:
 - Home profile: /

@@ -29,23 +29,29 @@ export interface ProfileSite {
 }
 
 export const profile: ProfileSite = {
-  name: 'Alex Morgan',
-  role: 'Independent operator and systems advisor',
-  location: 'San Francisco, CA',
-  summary: 'I help small teams turn scattered workflows into calm, durable operating systems.',
+  name: 'Andrew Powers',
+  role: 'Founder & CEO at PageLines',
+  location: 'San Francisco Bay Area',
+  summary: 'I build technical products that drive business outcomes, with 15 years leading SaaS, AI, analytics, growth, and automation teams.',
   avatar: {
-    src: '/avatar.svg',
-    alt: 'Portrait illustration of Alex Morgan',
+    src: '/andrew-profile-poster.jpg',
+    alt: 'Andrew Powers looking out a window',
+  },
+  videoAvatar: {
+    src: '/andrew-profile.mp4',
+    poster: '/andrew-profile-poster.jpg',
+    label: 'Profile video of Andrew Powers',
   },
   socialLinks: [
-    { label: 'Email', href: 'mailto:hello@example.com', icon: 'i-tabler-mail', primary: true },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: 'i-tabler-brand-linkedin' },
-    { label: 'Newsletter', href: '/blog', icon: 'i-tabler-news' },
+    { label: 'Email', href: 'mailto:arpowers@gmail.com', icon: 'i-tabler-mail', primary: true },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arpowers', icon: 'i-tabler-brand-linkedin' },
+    { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram' },
+    { label: 'PageLines', href: 'https://www.pagelines.com', icon: 'i-tabler-sparkles' },
   ],
   seo: {
-    siteUrl: 'https://example.com',
-    title: 'Alex Morgan - Independent operator and systems advisor',
-    description: 'Profile site for Alex Morgan, an independent operator helping founder-led teams design durable systems and sharper workflows.',
-    keywords: ['operator', 'systems advisor', 'automation consultant', 'founder support'],
+    siteUrl: 'https://andrewpowers.com',
+    title: 'Andrew Powers - Founder & CEO at PageLines',
+    description: 'Andrew Powers is the founder and CEO of PageLines, building adaptive AI agents for enterprise work with experience across SaaS, AI, analytics, growth, and automation.',
+    keywords: ['Andrew Powers', 'PageLines', 'adaptive AI agents', 'AI automation', 'SaaS founder', 'growth engineering'],
   },
 }

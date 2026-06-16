@@ -1,6 +1,6 @@
-# PL Profile Kit
+# andrewpowers.com
 
-Astro starter kit for small, polished, AI-maintainable profile sites.
+Personal website for Andrew Powers, built from `PageLines/pl-profile-kit`.
 
 The default site is intentionally focused:
 
@@ -19,6 +19,15 @@ pnpm run dev
 ```
 
 Edit the profile in `src/data/profile.ts`.
+
+## Upstream Kit
+
+This repo keeps `PageLines/pl-profile-kit` as `upstream` so kit improvements can be merged later:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
 
 ## Build
 

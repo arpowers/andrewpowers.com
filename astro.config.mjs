@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://andrewpowers.com',
   trailingSlash: 'never',
   integrations: [
     mdx(),
@@ -22,7 +22,7 @@ export default defineConfig({
     enabled: false,
   },
   server: {
-    port: 3214,
+    port: 3215,
     host: true,
   },
   vite: {

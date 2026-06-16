@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/LayoutBase.astro'
+import ProfileMedia from '@/components/ProfileMedia.astro'
 import ProfileButton from '@/components/ProfileButton.astro'
 import { getPublishedPosts, normalizeSlug } from '@/utils/posts'
 import { profile } from '@/data/profile'
@@ -29,23 +30,7 @@ const schema = {
     <section class="profile-shell grid min-h-screen items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]">
       <div class="relative mx-auto w-full max-w-[360px]">
         <div class="aspect-[4/5] overflow-hidden rounded-[28px] border border-line bg-paper-2 shadow-[0_28px_80px_rgba(16,17,20,0.14)]">
-          {profile.videoAvatar && (
-            <video
-              class="h-full w-full object-cover"
-              src={profile.videoAvatar.src}
-              poster={profile.videoAvatar.poster}
-              aria-label={profile.videoAvatar.label}
-              autoplay
-              muted
-              loop
-              playsinline
-            >
-              <img src={profile.avatar.src} alt={profile.avatar.alt} class="h-full w-full object-cover" />
-            </video>
-          )}
-          {!profile.videoAvatar && (
-            <img src={profile.avatar.src} alt={profile.avatar.alt} class="h-full w-full object-cover" />
-          )}
+          <ProfileMedia profile={profile} />
         </div>
         <div class="absolute -bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-paper px-4 py-2 text-sm text-muted shadow-[0_12px_30px_rgba(16,17,20,0.1)]">
           <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"></span>
