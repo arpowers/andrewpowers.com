@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin '@egoist/tailwindcss-icons';
 
 @theme {
   --color-ink: #101114;

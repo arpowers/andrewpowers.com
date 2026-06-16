@@ -21,6 +21,7 @@ pl-profile-kit/
 │   └── robots.txt         # Crawler rules
 └── src/
     ├── content/posts/     # Optional blog/newsletter posts
+    ├── components/        # Reusable profile UI components
     ├── data/profile.ts    # Canonical profile content
     ├── layouts/           # HTML shell and SEO metadata
     ├── pages/             # Routes, RSS, and OG image
@@ -33,6 +34,7 @@ pl-profile-kit/
 | File | Purpose | Audience |
 |---|---|---|
 | `src/data/profile.ts` | Canonical profile content, social links, and SEO defaults | Editors and AI tools |
+| `src/components/ProfileButton.astro` | Reusable social/action button with Tabler icon support | Editors and AI tools |
 | `src/pages/index.astro` | Main profile page | Readers |
 | `src/content/posts/` | Optional blog/newsletter content | Readers and editors |
 | `src/pages/og.png.ts` | Generated Open Graph image | Social platforms |

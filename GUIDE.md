@@ -9,8 +9,7 @@ Use this structure:
 1. Name
 2. Role or positioning
 3. One-sentence summary
-4. Short about paragraph
-5. Social links
+4. Social links
 
 ## Voice
 

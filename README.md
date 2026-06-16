@@ -5,7 +5,7 @@ Astro starter kit for small, polished, AI-maintainable profile sites.
 The default site is intentionally focused:
 
 - avatar or video avatar
-- about paragraph
+- concise profile summary
 - social links
 - SEO metadata
 - generated Open Graph image

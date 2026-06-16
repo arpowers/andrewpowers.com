@@ -1,6 +1,8 @@
 export interface SocialLink {
   label: string
   href: string
+  icon: string
+  primary?: boolean
 }
 
 export interface ProfileSite {
@@ -8,7 +10,6 @@ export interface ProfileSite {
   role: string
   location: string
   summary: string
-  about: string
   avatar: {
     src: string
     alt: string
@@ -32,15 +33,14 @@ export const profile: ProfileSite = {
   role: 'Independent operator and systems advisor',
   location: 'San Francisco, CA',
   summary: 'I help small teams turn scattered workflows into calm, durable operating systems.',
-  about: 'Alex Morgan works with founder-led teams that need better systems without losing their human edge. The work spans strategy, automation, editorial operations, and the connective tissue between tools, people, and decisions.',
   avatar: {
     src: '/avatar.svg',
     alt: 'Portrait illustration of Alex Morgan',
   },
   socialLinks: [
-    { label: 'Email', href: 'mailto:hello@example.com' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'Newsletter', href: '/blog' },
+    { label: 'Email', href: 'mailto:hello@example.com', icon: 'i-tabler-mail', primary: true },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: 'i-tabler-brand-linkedin' },
+    { label: 'Newsletter', href: '/blog', icon: 'i-tabler-news' },
   ],
   seo: {
     siteUrl: 'https://example.com',
