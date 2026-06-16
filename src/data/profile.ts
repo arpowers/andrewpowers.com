@@ -65,8 +65,8 @@ export const profile: ProfileSite = {
     surface: '#ffffff',
     line: '#d7e5ea',
     muted: '#607078',
-    accent: '#2f8193',
-    accent2: '#78b8c4',
+    accent: 'oklch(51.1% 0.262 276.966)',
+    accent2: 'oklch(67% 0.16 276.966)',
   },
   seo: {
     siteUrl: 'https://andrewpowers.com',

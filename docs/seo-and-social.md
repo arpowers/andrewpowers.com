@@ -25,7 +25,7 @@ Site colors live in `src/data/profile.ts` under `theme`.
 theme: {
   paper: '#f7fbfd',
   surface: '#ffffff',
-  accent: '#2f8193',
+  accent: 'oklch(51.1% 0.262 276.966)',
 }
 ```
 
