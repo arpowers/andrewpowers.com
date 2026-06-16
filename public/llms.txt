@@ -1,0 +1,10 @@
+# Profile Site
+
+This is a small personal profile site generated from PL Profile Kit.
+
+Primary content:
+- Home profile: /
+- Notes feed: /blog
+- RSS feed: /rss.xml
+
+The canonical profile data lives in `src/data/profile.ts`.

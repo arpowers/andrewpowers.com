@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection, render } from 'astro:content'
+import Layout from '@/layouts/LayoutBase.astro'
+import { profile } from '@/data/profile'
+import { normalizeSlug } from '@/utils/posts'
+
+export async function getStaticPaths() {
+  const posts: CollectionEntry<'posts'>[] = await getCollection('posts', (entry: CollectionEntry<'posts'>) => {
+    return entry.data.status === 'published' && entry.data.visibility === 'public'
+  })
+
+  return posts.map(entry => ({
+    params: { slug: normalizeSlug(entry.id) },
+    props: entry,
+  }))
+}
+
+type Props = CollectionEntry<'posts'>
+const entry = Astro.props
+const { Content } = await render(entry)
+const title = entry.data.seo?.metaTitle || `${entry.data.title} - ${profile.name}`
+const description = entry.data.seo?.metaDescription || entry.data.description
+const keywords = entry.data.seo?.keywords || entry.data.tags
+const postUrl = new URL(`/blog/${normalizeSlug(entry.id)}`, profile.seo.siteUrl).toString()
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': entry.data.title,
+  'description': description,
+  'author': {
+    '@type': 'Person',
+    'name': profile.name,
+    'url': profile.seo.siteUrl,
+  },
+  'datePublished': entry.data.publishDate.toISOString(),
+  'dateModified': (entry.data.updatedDate || entry.data.publishDate).toISOString(),
+  'mainEntityOfPage': {
+    '@type': 'WebPage',
+    '@id': postUrl,
+  },
+  'keywords': keywords.join(', '),
+}
+---
+
+<Layout
+  title={title}
+  description={description}
+  type="article"
+  publishedTime={entry.data.publishDate.toISOString()}
+  modifiedTime={(entry.data.updatedDate || entry.data.publishDate).toISOString()}
+  schema={schema}
+>
+  <main class="profile-shell py-16 md:py-24">
+    <a class="quiet-label inline-block pb-8" href="/blog">Back to notes</a>
+    <article class="max-w-[760px]">
+      <header class="mb-10">
+        <p class="quiet-label mb-5">{entry.data.publishDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+        <h1 class="mb-6 text-5xl font-semibold leading-tight md:text-6xl">{entry.data.title}</h1>
+        <p class="text-xl leading-8 text-muted">{entry.data.description}</p>
+      </header>
+      <div class="prose-content">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
