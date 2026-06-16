@@ -20,6 +20,16 @@ export interface ProfileSite {
     label: string
   }
   socialLinks: SocialLink[]
+  theme: {
+    ink: string
+    paper: string
+    paper2: string
+    surface: string
+    line: string
+    muted: string
+    accent: string
+    accent2: string
+  }
   seo: {
     siteUrl: string
     title: string
@@ -32,7 +42,7 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'San Francisco Bay Area',
-  summary: 'I build technical products that drive business outcomes, with 15 years leading SaaS, AI, analytics, growth, and automation teams.',
+  summary: 'I build AI agents for operations and sales.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -48,6 +58,16 @@ export const profile: ProfileSite = {
     { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram' },
     { label: 'PageLines', href: 'https://www.pagelines.com', icon: 'i-tabler-sparkles' },
   ],
+  theme: {
+    ink: '#0e171b',
+    paper: '#f7fbfd',
+    paper2: '#eef7fa',
+    surface: '#ffffff',
+    line: '#d7e5ea',
+    muted: '#607078',
+    accent: '#2f8193',
+    accent2: '#78b8c4',
+  },
   seo: {
     siteUrl: 'https://andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',

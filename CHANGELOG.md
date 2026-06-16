@@ -2,6 +2,8 @@
 
 ## 2026-06-16
 
+- Changed the profile media card to a 9:16 aspect ratio and clamped the summary to two lines.
+- Moved site palette into profile theme data and switched the visual system to a cooler sea-glass palette with white secondary buttons.
 - Created `andrewpowers.com` from `PageLines/pl-profile-kit`.
 - Added Andrew Powers profile content, social links, canonical domain settings, and hover video media.
 - Removed the secondary about paragraph from the homepage.

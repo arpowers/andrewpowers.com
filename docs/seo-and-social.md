@@ -15,6 +15,22 @@ seo: {
 
 Update `siteUrl` before publishing.
 
+## Theme Colors
+
+Site colors live in `src/data/profile.ts` under `theme`.
+
+`src/layouts/LayoutBase.astro` applies those values as CSS variables:
+
+```ts
+theme: {
+  paper: '#f7fbfd',
+  surface: '#ffffff',
+  accent: '#2f8193',
+}
+```
+
+Tailwind utilities such as `bg-paper`, `bg-surface`, `bg-accent`, and `border-line` resolve through those variables, so a profile can change the primary color and background tone in one place.
+
 ## Metadata
 
 `src/layouts/LayoutBase.astro` emits:

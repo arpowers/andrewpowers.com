@@ -13,8 +13,8 @@ const { link } = Astro.props
     'inline-flex min-h-12 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition',
     'focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4',
     link.primary
-      ? 'border border-accent bg-accent text-paper shadow-[0_16px_36px_rgba(15,107,95,0.22)] hover:bg-ink hover:border-ink'
-      : 'border border-line bg-paper text-ink hover:border-accent hover:text-accent',
+      ? 'border border-accent bg-accent text-white shadow-[0_16px_36px_color-mix(in_srgb,var(--color-accent),transparent_72%)] hover:bg-ink hover:border-ink'
+      : 'border border-line bg-surface text-ink shadow-[0_10px_24px_rgba(14,23,27,0.03)] hover:border-accent hover:text-accent',
   ]}
   href={link.href}
 >

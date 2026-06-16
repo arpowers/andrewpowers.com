@@ -3,12 +3,13 @@
 
 @theme {
   --color-ink: #101114;
-  --color-paper: #f7f5ef;
-  --color-paper-2: #ebe7dc;
-  --color-line: #d7d1c2;
+  --color-paper: #f7fbfd;
+  --color-paper-2: #eef7fa;
+  --color-surface: #ffffff;
+  --color-line: #d7e5ea;
   --color-muted: #67645d;
-  --color-accent: #0f6b5f;
-  --color-accent-2: #c85d3f;
+  --color-accent: #2f8193;
+  --color-accent-2: #78b8c4;
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "DM Mono", "SF Mono", ui-monospace, monospace;
 }
@@ -25,6 +26,7 @@
   body {
     margin: 0;
     min-height: 100vh;
+    background: var(--color-paper);
   }
 
   a {
@@ -48,6 +50,13 @@
   text-transform: uppercase;
   letter-spacing: 0;
   color: var(--color-muted);
+}
+
+.summary-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .prose-content {
