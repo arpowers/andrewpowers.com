@@ -2,9 +2,10 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import { profile } from './src/data/profile.ts'
 
 export default defineConfig({
-  site: 'https://andrewpowers.com',
+  site: profile.seo.siteUrl,
   trailingSlash: 'never',
   integrations: [
     mdx(),
