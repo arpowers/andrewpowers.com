@@ -67,27 +67,17 @@ const schema = {
       </div>
 
       <div>
+        <p class="mb-5 text-base font-medium leading-[1.35] text-muted">{profile.role}</p>
         <h1
           class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]"
         >
           {profile.name}
         </h1>
-        <p class="mb-3 max-w-[650px] text-3xl font-medium leading-tight text-ink md:text-[2.4rem]">
-          {profile.role}.
-        </p>
         <p
           class="mb-8 line-clamp-2 max-w-[650px] text-2xl leading-snug text-muted md:text-[2rem]"
         >
           {profile.summary}
         </p>
-        <div class="mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold uppercase tracking-[0.12em] text-ink md:text-base">
-          {profile.proofStats.map((stat, index) => (
-            <>
-              {index > 0 && <span class="text-muted" aria-hidden="true">·</span>}
-              <span>{stat.value} {stat.label}</span>
-            </>
-          ))}
-        </div>
         <nav aria-label="Social links" class="flex flex-wrap gap-3">
           {profile.socialLinks.map((link) => <ProfileButton link={link} />)}
         </nav>
