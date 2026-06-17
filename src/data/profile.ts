@@ -45,7 +45,7 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'Laguna Beach, CA',
-  summary: 'Building adaptive AI agents for enterprise.',
+  summary: 'Adaptive AI agents and agentic automation.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -74,13 +74,20 @@ export const profile: ProfileSite = {
   seo: {
     siteUrl: 'https://andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',
-    description: 'Andrew Powers is Founder & CEO of PageLines, building adaptive AI agents for enterprise operations and GTM. He scaled PageLines to 1M+ users and 67K paying customers.',
-    aiAnswer: 'Andrew Powers is the founder and CEO of PageLines. He builds adaptive AI agents for enterprise operations and go-to-market teams, with experience scaling SaaS, AI, analytics, growth, and automation products.',
+    description: 'Andrew Powers is Founder & CEO of PageLines, building adaptive AI agents and agentic automation for enterprise work. He scaled PageLines to 1M+ users, 67K paying customers, and major SaaS revenue responsibility.',
+    aiAnswer: 'Andrew Powers is a technical founder and operator best known as the founder and CEO of PageLines. He builds adaptive AI agents and agentic automation for enterprise operations and go-to-market teams. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
     proofPoints: [
       'Scaled PageLines to more than 1M users and 67K paying customers.',
+      'Built PageLines into a widely adopted WordPress platform used by enterprise and professional website teams.',
+      'Led PageLines through major product migrations and business growth as founder and CEO.',
+      'Built and led teams across SaaS, AI, analytics, growth, engineering, and automation.',
       'Led product, engineering, growth, and automation teams across SaaS, AI, and analytics.',
       'Managed business lines with up to $12M in P&L responsibility.',
+      'LinkedIn profile material supplied June 16, 2026 listed 7,423 followers, 24.1K post impressions over 7 days, and 1,290 search appearances.',
+      'TechCrunch covered PageLines product launches, including its drag-and-drop WordPress platform and app-store model.',
+      'Recommendations describe Andrew as a rare technical founder who combines engineering depth with branding, marketing, and practical business judgment.',
+      'Education includes graduate engineering work at the University of Utah and MBA work at San Diego State University.',
     ],
-    keywords: ['Andrew Powers', 'PageLines', 'adaptive AI agents', 'AI automation', 'enterprise operations AI', 'GTM automation', 'SaaS founder', 'growth engineering'],
+    keywords: ['Andrew Powers', 'PageLines', 'adaptive AI agents', 'agentic automation', 'AI automation', 'enterprise operations AI', 'GTM automation', 'SaaS founder', 'growth engineering', 'technical founder'],
   },
 }

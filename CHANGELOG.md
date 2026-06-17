@@ -2,6 +2,7 @@
 
 ## 2026-06-16
 
+- Strengthened AI-search metadata, structured data, and `llms.txt` with fuller proof points, social proof, publications, and dated LinkedIn metrics.
 - Removed the hero metrics row and restored the PageLines role as text-base super text.
 - Updated the hero copy to lead with PageLines positioning, enterprise AI agent work, and understated proof metrics.
 - Ported PageLines standards into `plans/standards/`, loaded them from `AGENTS.md`, and replaced one-off styling classes with Tailwind utilities.

@@ -27,14 +27,45 @@ const schema = {
       name: "PageLines",
       url: "https://www.pagelines.com",
     },
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "University of Utah",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "San Diego State University",
+      },
+    ],
     knowsAbout: [
       "Adaptive AI agents",
+      "Agentic automation",
       "Enterprise automation",
       "Go-to-market systems",
       "SaaS product architecture",
       "Growth engineering",
+      "Technical marketing",
+      "AI analytics",
     ],
     award: profile.seo.proofPoints,
+    subjectOf: [
+      {
+        "@type": "CreativeWork",
+        name: "PageLines Debuts Platform, A Drag And Drop Theme Framework For WordPress",
+        publisher: {
+          "@type": "Organization",
+          name: "TechCrunch",
+        },
+      },
+      {
+        "@type": "CreativeWork",
+        name: "PageLines To Launch An App Store For WordPress Drag & Drop Sections, Plugins And Themes",
+        publisher: {
+          "@type": "Organization",
+          name: "TechCrunch",
+        },
+      },
+    ],
     sameAs: profile.socialLinks
       .map((link) => link.href)
       .filter((href) => href.startsWith("http")),
@@ -72,7 +103,7 @@ const schema = {
           {profile.role}
         </p>
         <h1
-          class="mb-3 max-w-[700px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] lg:text-[4.9rem] xl:text-[5.15rem]"
+          class="mb-3 max-w-[700px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] lg:text-7xl"
         >
           {profile.name}
         </h1>
