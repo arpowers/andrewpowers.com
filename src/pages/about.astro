@@ -2,7 +2,7 @@
 import Layout from "@/layouts/LayoutBase.astro";
 import { profile } from "@/data/profile";
 
-const aboutUrl = new URL("/about", profile.seo.siteUrl).toString();
+const aboutUrl = new URL("/about/", profile.seo.siteUrl).toString();
 const personSchema: Record<string, any> = {
   "@type": "Person",
   name: profile.name,

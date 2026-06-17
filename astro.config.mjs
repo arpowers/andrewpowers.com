@@ -6,7 +6,7 @@ import { profile } from './src/data/profile.ts'
 
 export default defineConfig({
   site: profile.seo.siteUrl,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [
     mdx(),
     sitemap(),
