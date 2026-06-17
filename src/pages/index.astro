@@ -28,11 +28,11 @@ const schema = {
 <Layout title={profile.seo.title} description={profile.seo.description} type="profile" schema={schema}>
   <main class="min-h-screen">
     <section class="profile-shell grid min-h-screen items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]">
-      <div class="relative mx-auto w-full max-w-[340px]">
-        <div class="aspect-square overflow-hidden rounded-full border border-line bg-paper-2 shadow-[0_28px_80px_rgba(16,17,20,0.14)]">
+      <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[420px]">
+        <div class="avatar-frame aspect-square overflow-hidden rounded-[30px] border border-line bg-paper-2">
           <ProfileMedia profile={profile} />
         </div>
-        <div class="absolute -bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-paper px-4 py-2 text-sm text-muted shadow-[0_12px_30px_rgba(16,17,20,0.1)]">
+        <div class="location-pill absolute -bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-2 text-sm text-muted">
           <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"></span>
           {profile.location}
         </div>
@@ -43,7 +43,7 @@ const schema = {
         <h1 class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] md:text-7xl">
           {profile.name}
         </h1>
-        <p class="summary-clamp mb-8 max-w-[720px] text-2xl leading-snug text-muted md:text-3xl">
+        <p class="summary-clamp mb-8 max-w-[580px] text-2xl leading-snug text-muted md:text-3xl">
           {profile.summary}
         </p>
         <nav aria-label="Social links" class="flex flex-wrap gap-3">

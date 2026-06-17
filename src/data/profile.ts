@@ -60,10 +60,10 @@ export const profile: ProfileSite = {
   ],
   theme: {
     ink: '#0e171b',
-    paper: '#f7fbfd',
-    paper2: '#eef7fa',
+    paper: '#fbfdff',
+    paper2: '#f2f7fb',
     surface: '#ffffff',
-    line: '#d7e5ea',
+    line: '#d5e4ec',
     muted: '#607078',
     accent: 'oklch(51.1% 0.262 276.966)',
     accent2: 'oklch(67% 0.16 276.966)',

@@ -3,10 +3,10 @@
 
 @theme {
   --color-ink: #101114;
-  --color-paper: #f7fbfd;
-  --color-paper-2: #eef7fa;
+  --color-paper: #fbfdff;
+  --color-paper-2: #f2f7fb;
   --color-surface: #ffffff;
-  --color-line: #d7e5ea;
+  --color-line: #d5e4ec;
   --color-muted: #67645d;
   --color-accent: oklch(51.1% 0.262 276.966);
   --color-accent-2: oklch(67% 0.16 276.966);
@@ -16,7 +16,7 @@
 
 @layer base {
   html {
-    background: var(--color-paper);
+    background: #ffffff;
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -26,7 +26,7 @@
   body {
     margin: 0;
     min-height: 100vh;
-    background: var(--color-paper);
+    background: #ffffff;
   }
 
   a {
@@ -50,6 +50,21 @@
   text-transform: uppercase;
   letter-spacing: 0;
   color: var(--color-muted);
+}
+
+.avatar-frame {
+  box-shadow:
+    0 1px 1px hsl(215deg 35% 32% / 0.035),
+    0 3px 6px hsl(215deg 35% 32% / 0.035),
+    0 10px 20px hsl(215deg 35% 32% / 0.045),
+    0 28px 56px hsl(215deg 35% 32% / 0.055);
+}
+
+.location-pill {
+  box-shadow:
+    0 1px 1px hsl(215deg 35% 32% / 0.04),
+    0 2px 4px hsl(215deg 35% 32% / 0.04),
+    0 8px 16px hsl(215deg 35% 32% / 0.055);
 }
 
 .summary-clamp {
