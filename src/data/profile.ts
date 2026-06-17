@@ -11,6 +11,10 @@ export interface ProfileSite {
   role: string
   location: string
   summary: string
+  proofStats: {
+    value: string
+    label: string
+  }[]
   avatar: {
     src: string
     alt: string
@@ -45,7 +49,11 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'Laguna Beach, CA',
-  summary: 'AI systems for sales, support, and back office work.',
+  summary: 'Building adaptive AI agents for enterprise.',
+  proofStats: [
+    { value: '1M+', label: 'users' },
+    { value: '$12M+', label: 'P&L' },
+  ],
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
