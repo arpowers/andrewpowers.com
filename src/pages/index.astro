@@ -1,97 +1,127 @@
 ---
-import Layout from '@/layouts/LayoutBase.astro'
-import ProfileMedia from '@/components/ProfileMedia.astro'
-import ProfileButton from '@/components/ProfileButton.astro'
-import { getPublishedPosts, normalizeSlug } from '@/utils/posts'
-import { profile } from '@/data/profile'
+import Layout from "@/layouts/LayoutBase.astro";
+import ProfileMedia from "@/components/ProfileMedia.astro";
+import ProfileButton from "@/components/ProfileButton.astro";
+import { getPublishedPosts, normalizeSlug } from "@/utils/posts";
+import { profile } from "@/data/profile";
 
-const posts = await getPublishedPosts()
-const latestPosts = posts.slice(0, 3)
+const posts = await getPublishedPosts();
+const latestPosts = posts.slice(0, 3);
 
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  'mainEntity': {
-    '@type': 'Person',
-    'name': profile.name,
-    'jobTitle': profile.role,
-    'description': profile.seo.aiAnswer,
-    'image': new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
-    'url': profile.seo.siteUrl,
-    'address': {
-      '@type': 'PostalAddress',
-      'addressLocality': profile.location,
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.role,
+    description: profile.seo.aiAnswer,
+    image: new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
+    url: profile.seo.siteUrl,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: profile.location,
     },
-    'worksFor': {
-      '@type': 'Organization',
-      'name': 'PageLines',
-      'url': 'https://www.pagelines.com',
+    worksFor: {
+      "@type": "Organization",
+      name: "PageLines",
+      url: "https://www.pagelines.com",
     },
-    'knowsAbout': [
-      'Adaptive AI agents',
-      'Enterprise automation',
-      'Go-to-market systems',
-      'SaaS product architecture',
-      'Growth engineering',
+    knowsAbout: [
+      "Adaptive AI agents",
+      "Enterprise automation",
+      "Go-to-market systems",
+      "SaaS product architecture",
+      "Growth engineering",
     ],
-    'award': profile.seo.proofPoints,
-    'sameAs': profile.socialLinks
-      .map(link => link.href)
-      .filter(href => href.startsWith('http')),
+    award: profile.seo.proofPoints,
+    sameAs: profile.socialLinks
+      .map((link) => link.href)
+      .filter((href) => href.startsWith("http")),
   },
-}
+};
 ---
 
-<Layout title={profile.seo.title} description={profile.seo.description} type="profile" schema={schema}>
+<Layout
+  title={profile.seo.title}
+  description={profile.seo.description}
+  type="profile"
+  schema={schema}
+>
   <main class="min-h-screen">
-    <section class="profile-shell grid min-h-screen items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]">
+    <section
+      class="mx-auto grid min-h-screen w-[min(1120px,calc(100%-32px))] items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]"
+    >
       <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[420px]">
-        <div class="avatar-frame aspect-square overflow-hidden rounded-[30px] bg-paper-2">
+        <div
+          class="aspect-square overflow-hidden rounded-3xl bg-paper-2 outline outline-1 outline-line shadow-[inset_0_0_0_8px_rgb(255_255_255_/_0.92),inset_0_0_0_9px_hsl(204deg_42%_68%_/_0.18),0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_3px_6px_hsl(215deg_35%_32%_/_0.035),0_14px_28px_hsl(215deg_35%_32%_/_0.045)]"
+        >
           <ProfileMedia profile={profile} />
         </div>
-        <div class="location-pill absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-surface px-4 py-2 text-sm text-muted">
+        <div
+          class="absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-surface px-4 py-2 text-sm text-muted shadow-[0_0_0_5px_rgb(255_255_255),0_0_0_6px_hsl(204deg_42%_82%_/_0.8),0_1px_1px_hsl(215deg_35%_32%_/_0.04),0_2px_4px_hsl(215deg_35%_32%_/_0.04),0_10px_18px_hsl(215deg_35%_32%_/_0.06)]"
+        >
           <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"></span>
           {profile.location}
         </div>
       </div>
 
       <div>
-        <p class="quiet-label mb-5">{profile.role}</p>
-        <h1 class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]">
+        <p class="mb-5 text-[15px] font-medium leading-[1.35] text-muted md:text-base">{profile.role}</p>
+        <h1
+          class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]"
+        >
           {profile.name}
         </h1>
-        <p class="summary-clamp mb-8 max-w-[650px] text-2xl leading-snug text-muted md:text-[2rem]">
+        <p
+          class="mb-8 line-clamp-2 max-w-[650px] text-2xl leading-snug text-muted md:text-[2rem]"
+        >
           {profile.summary}
         </p>
         <nav aria-label="Social links" class="flex flex-wrap gap-3">
-          {profile.socialLinks.map(link => (
-            <ProfileButton link={link} />
-          ))}
+          {profile.socialLinks.map((link) => <ProfileButton link={link} />)}
         </nav>
       </div>
     </section>
 
-    {latestPosts.length > 0 && (
-      <section class="border-t border-line bg-paper-2 py-16">
-        <div class="profile-shell">
-          <div class="mb-8 flex items-end justify-between gap-6">
-            <div>
-              <p class="quiet-label mb-3">Latest</p>
-              <h2 class="text-3xl font-semibold">Notes and updates</h2>
-            </div>
-            <a class="text-sm font-medium text-accent" href="/blog">View all</a>
-          </div>
-          <div class="grid gap-4 md:grid-cols-3">
-            {latestPosts.map(post => (
-              <a class="rounded-2xl border border-line bg-paper p-6 transition hover:-translate-y-1 hover:border-accent" href={`/blog/${normalizeSlug(post.id)}`}>
-                <p class="quiet-label mb-4">{post.data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
-                <h3 class="mb-3 text-xl font-semibold leading-tight">{post.data.title}</h3>
-                <p class="text-sm leading-6 text-muted">{post.data.description}</p>
+    {
+      latestPosts.length > 0 && (
+        <section class="border-t border-line bg-paper-2 py-16">
+          <div class="mx-auto w-[min(1120px,calc(100%-32px))]">
+            <div class="mb-8 flex items-end justify-between gap-6">
+              <div>
+                <p class="mb-3 text-[15px] font-medium leading-[1.35] text-muted md:text-base">Latest</p>
+                <h2 class="text-3xl font-semibold">Notes and updates</h2>
+              </div>
+              <a class="text-sm font-medium transition-colors hover:text-accent" href="/blog">
+                View all
               </a>
-            ))}
+            </div>
+            <div class="grid gap-4 md:grid-cols-3">
+              {latestPosts.map((post) => (
+                <a
+                  class="rounded-2xl border border-line bg-paper p-6 transition-colors hover:border-accent"
+                  href={`/blog/${normalizeSlug(post.id)}`}
+                >
+                  <p class="mb-4 text-[15px] font-medium leading-[1.35] text-muted md:text-base">
+                    {post.data.publishDate.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </p>
+                  <h3 class="mb-3 text-xl font-semibold leading-tight">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm leading-6 text-muted">
+                    {post.data.description}
+                  </p>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    )}
+        </section>
+      )
+    }
   </main>
 </Layout>

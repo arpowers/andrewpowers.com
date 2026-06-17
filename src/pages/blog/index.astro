@@ -9,8 +9,8 @@ const description = `Notes, updates, and essays from ${profile.name}.`
 ---
 
 <Layout title={title} description={description}>
-  <main class="profile-shell py-16 md:py-24">
-    <a class="quiet-label inline-block pb-8" href="/">Back to profile</a>
+  <main class="mx-auto w-[min(1120px,calc(100%-32px))] py-16 md:py-24">
+    <a class="inline-block pb-8 text-[15px] font-medium leading-[1.35] text-muted transition-colors hover:text-accent md:text-base" href="/">Back to profile</a>
     <header class="mb-12 max-w-[720px]">
       <h1 class="mb-5 text-5xl font-semibold leading-tight md:text-7xl">Notes</h1>
       <p class="text-xl leading-8 text-muted">{description}</p>
@@ -18,8 +18,8 @@ const description = `Notes, updates, and essays from ${profile.name}.`
 
     <div class="grid gap-4">
       {posts.map(post => (
-        <a class="rounded-2xl border border-line bg-paper-2 p-6 transition hover:border-accent" href={`/blog/${normalizeSlug(post.id)}`}>
-          <p class="quiet-label mb-4">{post.data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+        <a class="rounded-2xl border border-line bg-paper-2 p-6 transition-colors hover:border-accent" href={`/blog/${normalizeSlug(post.id)}`}>
+          <p class="mb-4 text-[15px] font-medium leading-[1.35] text-muted md:text-base">{post.data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
           <h2 class="mb-3 text-2xl font-semibold">{post.data.title}</h2>
           <p class="max-w-[760px] leading-7 text-muted">{post.data.description}</p>
         </a>

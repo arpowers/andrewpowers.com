@@ -21,7 +21,7 @@ const video = profile.videoAvatar
   />
   {video && (
     <video
-      class="profile-hover-video absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
+      class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
       data-hover-video
       src={`${video.src}#t=0.1`}
       poster={video.poster}

@@ -19,11 +19,25 @@ This is a generic framework. Do not assume a specific person, industry, or audie
 
 1. `README.md` - project purpose and setup.
 2. `overview.md` - file map and current site structure.
-3. `GUIDE.md` - writing, SEO, and source standards.
-4. `docs/seo-and-social.md` - metadata, structured data, OG image, and social previews.
-5. `docs/ai-workflow.md` - processing workflow for profile updates.
-6. `src/data/profile.ts` - canonical profile content.
-7. Relevant files under `src/content/posts/` when editing the blog/newsletter.
+3. `plans/standards/first-principles.md` - operating principles, simplicity rules, and engineering heuristics.
+4. `plans/standards/design.md` - visual standards, composition audit, and language rules.
+5. `plans/standards/code-style.md` - TypeScript, Astro, Tailwind, and implementation conventions.
+6. `GUIDE.md` - writing, SEO, and source standards.
+7. `docs/seo-and-social.md` - metadata, structured data, OG image, and social previews.
+8. `docs/ai-workflow.md` - processing workflow for profile updates.
+9. `src/data/profile.ts` - canonical profile content.
+10. Relevant files under `src/content/posts/` when editing the blog/newsletter.
+
+## Standards Override
+
+- Apply `plans/standards/first-principles.md`, `plans/standards/design.md`, and `plans/standards/code-style.md` before local preference.
+- Delete, compress, and simplify before adding structure.
+- Use Tailwind utilities directly for layout and component styling. Do not create bespoke CSS classes for one-off styling such as cards, avatar frames, pills, labels, or line clamps.
+- Use semantic theme utilities (`text-muted`, `border-line`, `bg-paper`, `bg-surface`, `bg-ink`, `text-ink`, `bg-accent`) instead of raw colors in markup.
+- Use `line-clamp-2` for two-line clamps.
+- Use `transition-colors`; avoid broad transitions and decorative motion.
+- Use `font-medium` and `font-semibold` only.
+- Keep border radii to `rounded-2xl`, `rounded-3xl`, or `rounded-full` unless a supplied asset requires a fixed mask.
 
 ## Source Boundaries
 

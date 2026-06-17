@@ -2,6 +2,7 @@
 
 ## 2026-06-16
 
+- Ported PageLines standards into `plans/standards/`, loaded them from `AGENTS.md`, and replaced one-off styling classes with Tailwind utilities.
 - Rewrote the hero and SEO summary to answer who Andrew Powers is more clearly for readers and AI search.
 - Added AI-search proof points to structured data, metadata, and `llms.txt` while keeping the homepage copy restrained.
 - Changed the hero subhead to outcome-focused copy, made the primary button black, and refined avatar/chip rings for cleaner contrast.
