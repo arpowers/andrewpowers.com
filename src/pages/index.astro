@@ -50,9 +50,9 @@ const schema = {
 >
   <main class="min-h-screen">
     <section
-      class="mx-auto grid min-h-screen w-[min(1120px,calc(100%-32px))] items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]"
+      class="mx-auto grid min-h-screen w-[min(1180px,calc(100%-32px))] items-center gap-14 py-12 lg:grid-cols-[0.78fr_1.22fr] xl:gap-16"
     >
-      <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[420px]">
+      <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[440px]">
         <div
           class="aspect-square overflow-hidden rounded-3xl bg-paper-2 outline outline-1 outline-line shadow-[inset_0_0_0_8px_rgb(255_255_255_/_0.92),inset_0_0_0_9px_hsl(204deg_42%_68%_/_0.18),0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_3px_6px_hsl(215deg_35%_32%_/_0.035),0_14px_28px_hsl(215deg_35%_32%_/_0.045)]"
         >
@@ -67,18 +67,18 @@ const schema = {
       </div>
 
       <div>
-        <p class="mb-5 text-base font-medium leading-[1.35] text-muted">{profile.role}</p>
+        <p class="mb-6 text-base font-medium leading-[1.35] text-muted">{profile.role}</p>
         <h1
-          class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]"
+          class="mb-10 max-w-[800px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.85rem]"
         >
           {profile.name}
         </h1>
         <p
-          class="mb-8 line-clamp-2 max-w-[650px] text-2xl leading-snug text-muted md:text-[2rem]"
+          class="mb-10 line-clamp-2 max-w-[720px] text-2xl leading-snug text-muted md:text-[2.15rem]"
         >
           {profile.summary}
         </p>
-        <nav aria-label="Social links" class="flex flex-wrap gap-3">
+        <nav aria-label="Social links" class="flex flex-wrap gap-4">
           {profile.socialLinks.map((link) => <ProfileButton link={link} />)}
         </nav>
       </div>
