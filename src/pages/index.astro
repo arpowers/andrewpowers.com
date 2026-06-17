@@ -46,10 +46,10 @@ const schema = {
   <main class="min-h-screen">
     <section class="profile-shell grid min-h-screen items-center gap-12 py-12 lg:grid-cols-[0.78fr_1.22fr]">
       <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[420px]">
-        <div class="avatar-frame aspect-square overflow-hidden rounded-[30px] border border-line bg-paper-2">
+        <div class="avatar-frame aspect-square overflow-hidden rounded-[30px] bg-paper-2">
           <ProfileMedia profile={profile} />
         </div>
-        <div class="location-pill absolute -bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-2 text-sm text-muted">
+        <div class="location-pill absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-surface px-4 py-2 text-sm text-muted">
           <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"></span>
           {profile.location}
         </div>

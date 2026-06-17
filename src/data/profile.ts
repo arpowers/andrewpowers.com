@@ -45,7 +45,7 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'Laguna Beach, CA',
-  summary: 'Founder & CEO at PageLines. AI agents for enterprise work.',
+  summary: 'AI systems for sales, support, and back office work.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -59,7 +59,7 @@ export const profile: ProfileSite = {
     { label: 'Email', href: 'mailto:arpowers@gmail.com', icon: 'i-tabler-mail', primary: true },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arpowers', icon: 'i-tabler-brand-linkedin' },
     { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram' },
-    { label: 'PageLines', href: 'https://www.pagelines.com', logoSrc: '/pagelines-logo.svg' },
+    { label: 'PageLines', href: 'https://www.pagelines.com', icon: 'i-tabler-briefcase-2' },
   ],
   theme: {
     ink: '#0e171b',

@@ -13,13 +13,13 @@ const { link } = Astro.props
     'inline-flex min-h-12 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition',
     'focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4',
     link.primary
-      ? 'border border-accent bg-accent text-white shadow-[0_1px_1px_hsl(245deg_70%_40%_/_0.08),0_8px_18px_hsl(245deg_70%_40%_/_0.16)] hover:bg-ink hover:border-ink'
-      : 'border border-line bg-surface text-ink shadow-[0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_4px_10px_hsl(215deg_35%_32%_/_0.045)] hover:border-accent hover:text-accent',
+      ? 'border border-ink bg-ink text-white shadow-[0_1px_1px_hsl(215deg_35%_12%_/_0.08),0_10px_22px_hsl(245deg_60%_45%_/_0.12)] hover:border-accent hover:bg-accent'
+      : 'border border-line bg-surface text-ink shadow-[0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_4px_10px_hsl(215deg_35%_32%_/_0.045)] hover:border-ink',
   ]}
   href={link.href}
 >
   {link.logoSrc
-    ? <img class="size-4 shrink-0 object-contain" src={link.logoSrc} alt="" aria-hidden="true" />
+    ? <img class="size-5 shrink-0 object-contain" src={link.logoSrc} alt="" aria-hidden="true" />
     : <span class:list={[link.icon, 'size-4 shrink-0']} aria-hidden="true"></span>}
   <span>{link.label}</span>
 </a>
