@@ -51,7 +51,7 @@ export const profile: ProfileSite = {
     link: 'https://www.pagelines.com',
   },
   location: 'Laguna Beach, CA',
-  summary: 'American entrepreneur. Adaptive agents and personal AI.',
+  summary: 'American entrepreneur. Building adaptive agents and personal AI for work.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
