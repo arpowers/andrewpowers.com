@@ -3,79 +3,71 @@ import Layout from "@/layouts/LayoutBase.astro";
 import ProfileMedia from "@/components/ProfileMedia.astro";
 import ProfileButton from "@/components/ProfileButton.astro";
 import { getPublishedPosts, normalizeSlug } from "@/utils/posts";
-import { profile } from "@/data/profile";
+import { profile, type HeroAction, type SocialLink } from "@/data/profile";
 
 const posts = await getPublishedPosts();
 const latestPosts = posts.slice(0, 3);
-const telegramLink = profile.socialLinks.find(
-  (link) => link.label === "Telegram",
-);
-const linkedinLink = profile.socialLinks.find(
-  (link) => link.label === "LinkedIn",
-);
+const socialLinksByKey = new Map(profile.socialLinks.map((link) => [link.key, link]));
+const heroActions: Array<HeroAction & { link: SocialLink }> = profile.hero.actions.flatMap((action) => {
+  const link = socialLinksByKey.get(action.linkKey);
 
-const schema = {
+  return link ? [{ ...action, link }] : [];
+});
+
+const personSchema: Record<string, any> = {
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role.text,
+  description: profile.seo.aiAnswer,
+  image: new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
+  url: profile.seo.siteUrl,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: profile.location,
+  },
+  knowsAbout: profile.structuredData.knowsAbout,
+  award: profile.seo.proofPoints,
+  sameAs: profile.socialLinks
+    .map((link) => link.href)
+    .filter((href) => href.startsWith("http")),
+};
+
+if (profile.structuredData.worksFor) {
+  personSchema.worksFor = {
+    "@type": profile.structuredData.worksFor.schemaType ?? "Organization",
+    name: profile.structuredData.worksFor.name,
+    ...(profile.structuredData.worksFor.url ? { url: profile.structuredData.worksFor.url } : {}),
+  };
+}
+
+if (profile.structuredData.alumniOf?.length) {
+  personSchema.alumniOf = profile.structuredData.alumniOf.map((organization) => ({
+    "@type": organization.schemaType ?? "Organization",
+    name: organization.name,
+    ...(organization.url ? { url: organization.url } : {}),
+  }));
+}
+
+if (profile.structuredData.subjectOf?.length) {
+  personSchema.subjectOf = profile.structuredData.subjectOf.map((work) => ({
+    "@type": "CreativeWork",
+    name: work.name,
+    ...(work.publisher
+      ? {
+          publisher: {
+            "@type": work.publisher.schemaType ?? "Organization",
+            name: work.publisher.name,
+            ...(work.publisher.url ? { url: work.publisher.url } : {}),
+          },
+        }
+      : {}),
+  }));
+}
+
+const schema: Record<string, any> = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  mainEntity: {
-    "@type": "Person",
-    name: profile.name,
-    jobTitle: profile.role.text,
-    description: profile.seo.aiAnswer,
-    image: new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
-    url: profile.seo.siteUrl,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: profile.location,
-    },
-    worksFor: {
-      "@type": "Organization",
-      name: "PageLines",
-      url: "https://www.pagelines.com",
-    },
-    alumniOf: [
-      {
-        "@type": "CollegeOrUniversity",
-        name: "University of Utah",
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "San Diego State University",
-      },
-    ],
-    knowsAbout: [
-      "Adaptive AI agents",
-      "Agentic automation",
-      "Enterprise automation",
-      "Go-to-market systems",
-      "SaaS product architecture",
-      "Growth engineering",
-      "Technical marketing",
-      "AI analytics",
-    ],
-    award: profile.seo.proofPoints,
-    subjectOf: [
-      {
-        "@type": "CreativeWork",
-        name: "PageLines Debuts Platform, A Drag And Drop Theme Framework For WordPress",
-        publisher: {
-          "@type": "Organization",
-          name: "TechCrunch",
-        },
-      },
-      {
-        "@type": "CreativeWork",
-        name: "PageLines To Launch An App Store For WordPress Drag & Drop Sections, Plugins And Themes",
-        publisher: {
-          "@type": "Organization",
-          name: "TechCrunch",
-        },
-      },
-    ],
-    sameAs: profile.socialLinks
-      .map((link) => link.href)
-      .filter((href) => href.startsWith("http")),
-  },
+  mainEntity: personSchema,
 };
 ---
 
@@ -132,23 +124,24 @@ const schema = {
           class="mx-auto flex w-full max-w-[360px] items-center justify-center gap-3 sm:max-w-none lg:mx-0 lg:justify-start"
         >
           {
-            telegramLink && (
-              <ProfileButton link={telegramLink} label="Message on Telegram" />
-            )
-          }
-          {
-            linkedinLink && (
-              <a
-                class="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-[0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_4px_10px_hsl(215deg_35%_32%_/_0.045)] transition-colors hover:border-ink focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4"
-                href={linkedinLink.href}
-                aria-label="LinkedIn"
-              >
-                <span
-                  class:list={[linkedinLink.icon, "size-4 shrink-0"]}
-                  aria-hidden="true"
+            heroActions.map((action) => (
+              action.variant === "primary" ? (
+                <ProfileButton
+                  link={action.link}
+                  label={action.label ?? action.link.label}
                 />
-              </a>
-            )
+              ) : (
+                <a
+                  class="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-[0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_4px_10px_hsl(215deg_35%_32%_/_0.045)] transition-colors hover:border-ink focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4"
+                  href={action.link.href}
+                  aria-label={action.label ?? action.link.label}
+                >
+                  {action.link.logoSrc
+                    ? <img class="size-5 shrink-0 object-contain" src={action.link.logoSrc} alt="" aria-hidden="true" />
+                    : <span class:list={[action.link.icon, "size-4 shrink-0"]} aria-hidden="true" />}
+                </a>
+              )
+            ))
           }
         </nav>
       </div>

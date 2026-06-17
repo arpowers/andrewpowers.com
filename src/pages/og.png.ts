@@ -8,7 +8,7 @@ import { profile } from '@/data/profile'
 export const prerender = true
 
 export const GET: APIRoute = async () => {
-  const avatar = await readFile(join(process.cwd(), 'public', 'andrew-profile-poster.jpg'))
+  const avatar = await readFile(join(process.cwd(), 'public', profile.share.image.src.replace(/^\//, '')))
   const avatarSrc = `data:image/jpeg;base64,${avatar.toString('base64')}`
   const initials = profile.name
     .split(' ')
