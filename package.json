@@ -9,6 +9,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "deploy": "pnpm run build && wrangler pages deploy dist --project-name andrewpowers-com --branch main",
     "check": "astro check && astro build",
     "astro": "astro"
   },
