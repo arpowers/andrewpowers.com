@@ -15,6 +15,7 @@ export const GET: APIRoute = async () => {
     .map(part => part[0])
     .slice(0, 2)
     .join('')
+  const summary = profile.share.image.summary ?? profile.summary.split('. ').slice(0, 2).join('. ')
 
   return new ImageResponse(
     createElement(
@@ -88,17 +89,14 @@ export const GET: APIRoute = async () => {
             position: 'absolute',
             top: 72,
             left: 72,
-            width: 92,
-            height: 92,
-            borderRadius: 28,
-            border: '3px solid rgba(255,255,255,.88)',
-            background: 'rgba(16,17,20,.22)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: 34,
-            fontWeight: 600,
-            letterSpacing: '-1px',
+            fontSize: 46,
+            fontWeight: 900,
+            letterSpacing: '-2.2px',
+            color: 'rgba(255,255,255,.94)',
+            textShadow: '0 3px 22px rgba(0,0,0,.46)',
           },
         },
         initials,
@@ -118,24 +116,24 @@ export const GET: APIRoute = async () => {
         },
         createElement('div', {
           style: {
-            fontSize: 70,
+            fontSize: 84,
             fontWeight: 700,
             lineHeight: .98,
-            letterSpacing: '-3px',
-            maxWidth: 820,
+            letterSpacing: '-3.4px',
+            maxWidth: 880,
             textShadow: '0 3px 28px rgba(0,0,0,.58)',
           },
         }, profile.name),
         createElement('div', {
           style: {
-            fontSize: 34,
+            fontSize: 48,
             fontWeight: 600,
-            lineHeight: 1.18,
-            color: 'rgba(255,255,255,.82)',
-            maxWidth: 760,
+            lineHeight: 1.05,
+            color: 'rgba(255,255,255,.86)',
+            maxWidth: 930,
             textShadow: '0 3px 22px rgba(0,0,0,.64)',
           },
-        }, profile.summary),
+        }, summary),
       ),
     ),
     {

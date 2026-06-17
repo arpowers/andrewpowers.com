@@ -76,6 +76,7 @@ export interface ProfileSite {
       width: number
       height: number
       alt: string
+      summary?: string
     }
   }
   llms: {
@@ -188,6 +189,7 @@ export const profile: ProfileSite = {
       width: 1200,
       height: 1200,
       alt: 'Andrew Powers profile image',
+      summary: 'Adaptive agents and personal AI.',
     },
   },
   llms: {
