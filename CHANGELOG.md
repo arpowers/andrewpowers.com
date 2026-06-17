@@ -2,6 +2,8 @@
 
 ## 2026-06-16
 
+- Rewrote the hero and SEO summary to answer who Andrew Powers is more clearly for readers and AI search.
+- Added AI-search proof points to structured data, metadata, and `llms.txt` while keeping the homepage copy restrained.
 - Refined typography, loaded Inter explicitly, updated favicon assets, switched location to Laguna Beach, and used the PageLines logo in the action row.
 - Simplified the background to white and reduced shadows with subtle layered elevation.
 - Restored rounded image corners, lightened the page background, and replaced broad shadows with layered sharper shadows.

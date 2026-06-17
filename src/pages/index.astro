@@ -15,9 +15,26 @@ const schema = {
     '@type': 'Person',
     'name': profile.name,
     'jobTitle': profile.role,
-    'description': profile.seo.description,
+    'description': profile.seo.aiAnswer,
     'image': new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
     'url': profile.seo.siteUrl,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': profile.location,
+    },
+    'worksFor': {
+      '@type': 'Organization',
+      'name': 'PageLines',
+      'url': 'https://www.pagelines.com',
+    },
+    'knowsAbout': [
+      'Adaptive AI agents',
+      'Enterprise automation',
+      'Go-to-market systems',
+      'SaaS product architecture',
+      'Growth engineering',
+    ],
+    'award': profile.seo.proofPoints,
     'sameAs': profile.socialLinks
       .map(link => link.href)
       .filter(href => href.startsWith('http')),
@@ -43,7 +60,7 @@ const schema = {
         <h1 class="mb-8 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]">
           {profile.name}
         </h1>
-        <p class="summary-clamp mb-8 max-w-[580px] text-2xl leading-snug text-muted md:text-[2rem]">
+        <p class="summary-clamp mb-8 max-w-[650px] text-2xl leading-snug text-muted md:text-[2rem]">
           {profile.summary}
         </p>
         <nav aria-label="Social links" class="flex flex-wrap gap-3">

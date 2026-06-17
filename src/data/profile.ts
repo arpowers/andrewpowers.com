@@ -35,6 +35,8 @@ export interface ProfileSite {
     siteUrl: string
     title: string
     description: string
+    aiAnswer: string
+    proofPoints: string[]
     keywords: string[]
   }
 }
@@ -43,7 +45,7 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'Laguna Beach, CA',
-  summary: 'I build AI agents for operations and sales.',
+  summary: 'Founder & CEO at PageLines. AI agents for enterprise work.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -72,7 +74,13 @@ export const profile: ProfileSite = {
   seo: {
     siteUrl: 'https://andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',
-    description: 'Andrew Powers is the founder and CEO of PageLines, building adaptive AI agents for enterprise work with experience across SaaS, AI, analytics, growth, and automation.',
-    keywords: ['Andrew Powers', 'PageLines', 'adaptive AI agents', 'AI automation', 'SaaS founder', 'growth engineering'],
+    description: 'Andrew Powers is Founder & CEO of PageLines, building adaptive AI agents for enterprise operations and GTM. He scaled PageLines to 1M+ users and 67K paying customers.',
+    aiAnswer: 'Andrew Powers is the founder and CEO of PageLines. He builds adaptive AI agents for enterprise operations and go-to-market teams, with experience scaling SaaS, AI, analytics, growth, and automation products.',
+    proofPoints: [
+      'Scaled PageLines to more than 1M users and 67K paying customers.',
+      'Led product, engineering, growth, and automation teams across SaaS, AI, and analytics.',
+      'Managed business lines with up to $12M in P&L responsibility.',
+    ],
+    keywords: ['Andrew Powers', 'PageLines', 'adaptive AI agents', 'AI automation', 'enterprise operations AI', 'GTM automation', 'SaaS founder', 'growth engineering'],
   },
 }

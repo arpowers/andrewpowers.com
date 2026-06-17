@@ -6,6 +6,8 @@ import { profile } from '@/data/profile'
 export const prerender = true
 
 export const GET: APIRoute = async () => {
+  const ogAccent = '#4f39f6'
+
   return new ImageResponse(
     createElement(
       'div',
@@ -14,10 +16,10 @@ export const GET: APIRoute = async () => {
           width: '100%',
           height: '100%',
           display: 'flex',
-          background: '#f7f5ef',
-          color: '#101114',
+          background: '#ffffff',
+          color: profile.theme.ink,
           padding: 72,
-          border: '28px solid #ebe7dc',
+          border: `28px solid ${profile.theme.paper2}`,
           fontFamily: 'Inter, system-ui, sans-serif',
         },
       },
@@ -30,8 +32,8 @@ export const GET: APIRoute = async () => {
           createElement(
             'div',
             { style: { display: 'flex', flexDirection: 'column', gap: 18 } },
-            createElement('div', { style: { fontSize: 28, color: '#67645d' } }, profile.role),
-            createElement('div', { style: { fontSize: 92, fontWeight: 700, lineHeight: 1 } }, profile.name),
+            createElement('div', { style: { fontSize: 28, color: profile.theme.muted } }, profile.role),
+            createElement('div', { style: { fontSize: 92, fontWeight: 600, lineHeight: 1, letterSpacing: '-4px' } }, profile.name),
           ),
           createElement(
             'div',
@@ -40,7 +42,7 @@ export const GET: APIRoute = async () => {
                 width: 168,
                 height: 168,
                 borderRadius: 84,
-                background: '#0f6b5f',
+                background: ogAccent,
                 color: '#f7f5ef',
                 display: 'flex',
                 alignItems: 'center',
@@ -55,8 +57,8 @@ export const GET: APIRoute = async () => {
         createElement(
           'div',
           { style: { display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 940 } },
-          createElement('div', { style: { fontSize: 42, lineHeight: 1.25, color: '#67645d' } }, profile.summary),
-          createElement('div', { style: { fontSize: 26, color: '#0f6b5f' } }, profile.seo.siteUrl.replace(/^https?:\/\//, '')),
+          createElement('div', { style: { fontSize: 40, lineHeight: 1.24, color: profile.theme.muted } }, profile.summary),
+          createElement('div', { style: { fontSize: 26, color: ogAccent } }, profile.seo.siteUrl.replace(/^https?:\/\//, '')),
         ),
       ),
     ),
