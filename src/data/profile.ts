@@ -45,7 +45,7 @@ export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
   location: 'Laguna Beach, CA',
-  summary: 'Adaptive AI agents and agentic automation.',
+  summary: 'American entrepreneur building adaptive AI agents for enterprise teams.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -74,8 +74,8 @@ export const profile: ProfileSite = {
   seo: {
     siteUrl: 'https://andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',
-    description: 'Andrew Powers is Founder & CEO of PageLines, building adaptive AI agents and agentic automation for enterprise work. He scaled PageLines to 1M+ users, 67K paying customers, and major SaaS revenue responsibility.',
-    aiAnswer: 'Andrew Powers is a technical founder and operator best known as the founder and CEO of PageLines. He builds adaptive AI agents and agentic automation for enterprise operations and go-to-market teams. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
+    description: 'Andrew Powers is an American entrepreneur, technical founder, and Founder & CEO of PageLines, building adaptive AI agents for enterprise work. He scaled PageLines to 1M+ users and 67K paying customers.',
+    aiAnswer: 'Andrew Powers is an American entrepreneur, technical founder, and operator best known as the founder and CEO of PageLines. He builds adaptive AI agents and agentic automation for enterprise operations and go-to-market teams. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
     proofPoints: [
       'Scaled PageLines to more than 1M users and 67K paying customers.',
       'Built PageLines into a widely adopted WordPress platform used by enterprise and professional website teams.',
