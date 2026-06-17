@@ -56,9 +56,9 @@ export const profile: ProfileSite = {
     label: 'Profile video of Andrew Powers',
   },
   socialLinks: [
-    { label: 'Email', href: 'mailto:arpowers@gmail.com', icon: 'i-tabler-mail', primary: true },
+    { label: 'Email', href: 'mailto:arpowers@gmail.com', icon: 'i-tabler-mail' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arpowers', icon: 'i-tabler-brand-linkedin' },
-    { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram' },
+    { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram', primary: true },
     { label: 'PageLines', href: 'https://www.pagelines.com', icon: 'i-tabler-briefcase-2' },
   ],
   theme: {
