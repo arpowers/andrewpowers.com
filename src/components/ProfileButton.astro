@@ -18,6 +18,8 @@ const { link } = Astro.props
   ]}
   href={link.href}
 >
-  <span class:list={[link.icon, 'size-4 shrink-0']} aria-hidden="true"></span>
+  {link.logoSrc
+    ? <img class="size-4 shrink-0 object-contain" src={link.logoSrc} alt="" aria-hidden="true" />
+    : <span class:list={[link.icon, 'size-4 shrink-0']} aria-hidden="true"></span>}
   <span>{link.label}</span>
 </a>

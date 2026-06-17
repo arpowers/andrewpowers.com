@@ -1,7 +1,8 @@
 export interface SocialLink {
   label: string
   href: string
-  icon: string
+  icon?: string
+  logoSrc?: string
   primary?: boolean
 }
 
@@ -41,7 +42,7 @@ export interface ProfileSite {
 export const profile: ProfileSite = {
   name: 'Andrew Powers',
   role: 'Founder & CEO at PageLines',
-  location: 'San Francisco Bay Area',
+  location: 'Laguna Beach, CA',
   summary: 'I build AI agents for operations and sales.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
@@ -56,7 +57,7 @@ export const profile: ProfileSite = {
     { label: 'Email', href: 'mailto:arpowers@gmail.com', icon: 'i-tabler-mail', primary: true },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arpowers', icon: 'i-tabler-brand-linkedin' },
     { label: 'Telegram', href: 'https://t.me/arpowers', icon: 'i-tabler-brand-telegram' },
-    { label: 'PageLines', href: 'https://www.pagelines.com', icon: 'i-tabler-sparkles' },
+    { label: 'PageLines', href: 'https://www.pagelines.com', logoSrc: '/pagelines-logo.svg' },
   ],
   theme: {
     ink: '#0e171b',
