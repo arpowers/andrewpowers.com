@@ -132,7 +132,7 @@ export const profile: ProfileSite = {
     accent2: 'oklch(67% 0.16 276.966)',
   },
   seo: {
-    siteUrl: 'https://andrewpowers.com',
+    siteUrl: 'https://www.andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',
     description: 'Andrew Powers is an American entrepreneur, technical founder, and Founder & CEO of PageLines, building adaptive agents and personal AI. He scaled PageLines to 1M+ users and 67K paying customers.',
     aiAnswer: 'Andrew Powers is an American entrepreneur, technical founder, and operator best known as the founder and CEO of PageLines. He builds adaptive agents, personal AI, and applied AI systems for work. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
@@ -185,7 +185,7 @@ export const profile: ProfileSite = {
   share: {
     image: {
       src: '/andrew-profile-poster.jpg',
-      version: 'portrait-square-1',
+      version: 'portrait-square-2',
       width: 1200,
       height: 1200,
       alt: 'Andrew Powers profile image',
