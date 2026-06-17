@@ -21,7 +21,13 @@ export interface ProfileOrganization {
 
 export interface ProfileCreativeWork {
   name: string
+  url?: string
   publisher?: ProfileOrganization
+}
+
+export interface ProfileProofPoint {
+  label: string
+  value: string
 }
 
 export interface ProfileSite {
@@ -32,6 +38,14 @@ export interface ProfileSite {
   }
   location: string
   summary: string
+  about: {
+    title: string
+    description: string
+    intro: string
+    shortBio: string
+    longBio: string[]
+    proofPoints: ProfileProofPoint[]
+  }
   avatar: {
     src: string
     alt: string
@@ -100,6 +114,23 @@ export const profile: ProfileSite = {
   },
   location: 'Laguna Beach, CA',
   summary: 'American entrepreneur. Building adaptive agents and personal AI for work.',
+  about: {
+    title: 'About Andrew Powers',
+    description: 'Andrew Powers is an American entrepreneur, technical founder, and founder/CEO of PageLines, focused on adaptive agents and personal AI.',
+    intro: 'American entrepreneur. Adaptive agents and personal AI.',
+    shortBio: 'Andrew Powers is an American entrepreneur and founder/CEO of PageLines, known for scaling PageLines to more than 1M users and 67K paying customers. His current work focuses on adaptive agents, personal AI, and applied AI systems for work.',
+    longBio: [
+      'Andrew Powers is an American entrepreneur, technical founder, product leader, and operator. He founded PageLines and grew the company into a widely used WordPress platform with more than 1M users and 67K paying customers.',
+      'His work spans SaaS product architecture, AI systems, analytics, growth engineering, technical marketing, and go-to-market automation. He has led engineering and product teams across major platform shifts and managed business lines with up to $12M in P&L responsibility.',
+      'His current focus is adaptive agents and personal AI: software systems that learn from feedback, improve over time, and help people automate work across sales, support, operations, and go-to-market execution.',
+    ],
+    proofPoints: [
+      { value: '1M+', label: 'PageLines users' },
+      { value: '67K', label: 'paying customers' },
+      { value: '$12M', label: 'P&L responsibility' },
+      { value: '15+ yrs', label: 'product and engineering leadership' },
+    ],
+  },
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -174,10 +205,12 @@ export const profile: ProfileSite = {
     subjectOf: [
       {
         name: 'PageLines Debuts Platform, A Drag And Drop Theme Framework For WordPress',
+        url: 'https://techcrunch.com/2010/10/15/pagelines-platform-wordpress/',
         publisher: { name: 'TechCrunch' },
       },
       {
         name: 'PageLines To Launch An App Store For WordPress Drag & Drop Sections, Plugins And Themes',
+        url: 'https://techcrunch.com/2011/11/04/pagelines-to-launch-an-app-store-for-wordpress-drag-drop-sections-plugins-and-themes/',
         publisher: { name: 'TechCrunch' },
       },
     ],

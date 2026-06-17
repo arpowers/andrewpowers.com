@@ -52,6 +52,7 @@ if (profile.structuredData.subjectOf?.length) {
   personSchema.subjectOf = profile.structuredData.subjectOf.map((work) => ({
     "@type": "CreativeWork",
     name: work.name,
+    ...(work.url ? { url: work.url } : {}),
     ...(work.publisher
       ? {
           publisher: {
@@ -144,6 +145,11 @@ const schema: Record<string, any> = {
             ))
           }
         </nav>
+        <p class="mt-7 text-sm font-medium leading-6 text-muted">
+          <a class="underline decoration-line underline-offset-4 transition-colors hover:text-ink" href="/about">
+            About Andrew
+          </a>
+        </p>
       </div>
     </section>
 

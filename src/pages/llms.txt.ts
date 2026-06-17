@@ -25,6 +25,7 @@ ${profile.llms.positioningCues.map(cue => `- ${cue}`).join('\n')}
 
 Primary content:
 - Home profile: /
+- Canonical biography and proof points: /about
 - Notes feed: /blog
 - RSS feed: /rss.xml
 
