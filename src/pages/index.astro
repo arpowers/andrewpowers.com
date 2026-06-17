@@ -20,7 +20,7 @@ const schema = {
   mainEntity: {
     "@type": "Person",
     name: profile.name,
-    jobTitle: profile.role,
+    jobTitle: profile.role.text,
     description: profile.seo.aiAnswer,
     image: new URL(profile.avatar.src, profile.seo.siteUrl).toString(),
     url: profile.seo.siteUrl,
@@ -110,7 +110,12 @@ const schema = {
         <p
           class="mb-4 text-sm md:text-base font-medium leading-[1.35] text-muted"
         >
-          {profile.role}
+          <a
+            class="transition-colors hover:text-ink"
+            href={profile.role.link}
+          >
+            {profile.role.text}
+          </a>
         </p>
         <h1
           class="mb-4 max-w-[700px] text-4xl font-bold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl"
@@ -118,7 +123,7 @@ const schema = {
           {profile.name}
         </h1>
         <p
-          class="mx-auto mb-8 max-w-[310px] text-pretty text-lg leading-snug text-muted sm:max-w-[640px] sm:text-4xl sm:leading-[1.18] lg:mx-0 lg:mb-10 lg:text-[1.9rem]"
+          class="mx-auto mb-8 max-w-[310px] text-pretty text-lg leading-[1.4] text-muted sm:max-w-[640px] sm:text-4xl lg:mx-0 lg:mb-10 lg:text-[1.9rem]"
         >
           {profile.summary}
         </p>
@@ -128,10 +133,7 @@ const schema = {
         >
           {
             telegramLink && (
-              <ProfileButton
-                link={telegramLink}
-                label="Message on Telegram"
-              />
+              <ProfileButton link={telegramLink} label="Message on Telegram" />
             )
           }
           {

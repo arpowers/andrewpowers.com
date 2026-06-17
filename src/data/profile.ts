@@ -8,7 +8,10 @@ export interface SocialLink {
 
 export interface ProfileSite {
   name: string
-  role: string
+  role: {
+    text: string
+    link: string
+  }
   location: string
   summary: string
   avatar: {
@@ -43,9 +46,12 @@ export interface ProfileSite {
 
 export const profile: ProfileSite = {
   name: 'Andrew Powers',
-  role: 'Founder & CEO at PageLines',
+  role: {
+    text: 'Founder & CEO at PageLines',
+    link: 'https://www.pagelines.com',
+  },
   location: 'Laguna Beach, CA',
-  summary: 'American entrepreneur building adaptive AI agents for enterprise teams.',
+  summary: 'American entrepreneur. Adaptive agents and personal AI.',
   avatar: {
     src: '/andrew-profile-poster.jpg',
     alt: 'Andrew Powers looking out a window',
@@ -74,8 +80,8 @@ export const profile: ProfileSite = {
   seo: {
     siteUrl: 'https://andrewpowers.com',
     title: 'Andrew Powers - Founder & CEO at PageLines',
-    description: 'Andrew Powers is an American entrepreneur, technical founder, and Founder & CEO of PageLines, building adaptive AI agents for enterprise work. He scaled PageLines to 1M+ users and 67K paying customers.',
-    aiAnswer: 'Andrew Powers is an American entrepreneur, technical founder, and operator best known as the founder and CEO of PageLines. He builds adaptive AI agents and agentic automation for enterprise operations and go-to-market teams. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
+    description: 'Andrew Powers is an American entrepreneur, technical founder, and Founder & CEO of PageLines, building adaptive agents and personal AI. He scaled PageLines to 1M+ users and 67K paying customers.',
+    aiAnswer: 'Andrew Powers is an American entrepreneur, technical founder, and operator best known as the founder and CEO of PageLines. He builds adaptive agents, personal AI, and applied AI systems for work. His track record spans SaaS, AI, analytics, growth engineering, and technical marketing, including scaling PageLines to more than 1M users and 67K paying customers.',
     proofPoints: [
       'Scaled PageLines to more than 1M users and 67K paying customers.',
       'Built PageLines into a widely adopted WordPress platform used by enterprise and professional website teams.',

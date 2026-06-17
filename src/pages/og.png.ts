@@ -32,7 +32,7 @@ export const GET: APIRoute = async () => {
           createElement(
             'div',
             { style: { display: 'flex', flexDirection: 'column', gap: 18 } },
-            createElement('div', { style: { fontSize: 28, color: profile.theme.muted } }, profile.role),
+            createElement('div', { style: { fontSize: 28, color: profile.theme.muted } }, profile.role.text),
             createElement('div', { style: { fontSize: 92, fontWeight: 600, lineHeight: 1, letterSpacing: '-4px' } }, profile.name),
           ),
           createElement(
