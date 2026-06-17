@@ -10,8 +10,8 @@ const video = profile.videoAvatar
 ---
 
 <div
-  class="group relative h-full w-full"
-  data-hover-media={video ? 'true' : undefined}
+  class="relative h-full w-full"
+  data-cycle-media={video ? 'true' : undefined}
 >
   <img
     src={profile.avatar.src}
@@ -21,8 +21,8 @@ const video = profile.videoAvatar
   />
   {video && (
     <video
-      class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
-      data-hover-video
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 data-[active=true]:opacity-100"
+      data-cycle-video
       src={`${video.src}#t=0.1`}
       poster={video.poster}
       aria-label={video.label}
@@ -30,32 +30,70 @@ const video = profile.videoAvatar
       loop
       playsinline
       preload="metadata"
+      controlslist="nodownload nofullscreen noplaybackrate"
+      disablepictureinpicture
       tabindex="-1"
     ></video>
   )}
 </div>
 
 <script>
-  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const playMs = 5000
+  const restMs = 3000
 
-  if (canHover) {
-    for (const wrapper of document.querySelectorAll<HTMLElement>('[data-hover-media]')) {
-      const video = wrapper.querySelector<HTMLVideoElement>('[data-hover-video]')
+  if (!shouldReduceMotion) {
+    for (const wrapper of document.querySelectorAll<HTMLElement>('[data-cycle-media]')) {
+      const video = wrapper.querySelector<HTMLVideoElement>('[data-cycle-video]')
       if (!video)
         continue
 
       video.controls = false
       video.muted = true
       video.setAttribute('muted', '')
+      video.playsInline = true
 
-      wrapper.addEventListener('mouseenter', () => {
+      let timer: number | undefined
+
+      const rest = () => {
+        video.pause()
+        video.dataset.active = 'false'
+        timer = window.setTimeout(play, restMs)
+      }
+
+      const play = () => {
         video.currentTime = 0
-        void video.play().catch(() => {})
+        video.dataset.active = 'true'
+        void video.play()
+          .then(() => {
+            timer = window.setTimeout(rest, playMs)
+          })
+          .catch(() => {
+            video.dataset.active = 'false'
+            timer = window.setTimeout(play, restMs)
+          })
+      }
+
+      const stop = () => {
+        if (timer)
+          window.clearTimeout(timer)
+        video.pause()
+        video.dataset.active = 'false'
+      }
+
+      const observer = new IntersectionObserver(([entry]) => {
+        stop()
+        if (entry?.isIntersecting)
+          timer = window.setTimeout(play, restMs)
       })
 
-      wrapper.addEventListener('mouseleave', () => {
-        video.pause()
-        video.currentTime = 0
+      observer.observe(wrapper)
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden)
+          stop()
+        else
+          timer = window.setTimeout(play, restMs)
       })
     }
   }

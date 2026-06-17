@@ -50,9 +50,9 @@ const schema = {
 >
   <main class="min-h-screen">
     <section
-      class="mx-auto grid min-h-screen w-[min(1180px,calc(100%-32px))] items-center gap-14 py-12 lg:grid-cols-[0.78fr_1.22fr] xl:gap-16"
+      class="mx-auto grid min-h-screen w-[min(1120px,calc(100%-32px))] items-center gap-12 py-12 lg:grid-cols-[400px_minmax(0,1fr)] xl:gap-14"
     >
-      <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[440px]">
+      <div class="relative mx-auto w-full max-w-[360px] lg:max-w-[400px]">
         <div
           class="aspect-square overflow-hidden rounded-3xl bg-paper-2 outline outline-1 outline-line shadow-[inset_0_0_0_8px_rgb(255_255_255_/_0.92),inset_0_0_0_9px_hsl(204deg_42%_68%_/_0.18),0_1px_1px_hsl(215deg_35%_32%_/_0.035),0_3px_6px_hsl(215deg_35%_32%_/_0.035),0_14px_28px_hsl(215deg_35%_32%_/_0.045)]"
         >
@@ -61,24 +61,27 @@ const schema = {
         <div
           class="absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-surface px-4 py-2 text-sm text-muted shadow-[0_0_0_5px_rgb(255_255_255),0_0_0_6px_hsl(204deg_42%_82%_/_0.8),0_1px_1px_hsl(215deg_35%_32%_/_0.04),0_2px_4px_hsl(215deg_35%_32%_/_0.04),0_10px_18px_hsl(215deg_35%_32%_/_0.06)]"
         >
-          <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"></span>
+          <span class="i-tabler-map-pin size-4 text-accent" aria-hidden="true"
+          ></span>
           {profile.location}
         </div>
       </div>
 
       <div>
-        <p class="mb-6 text-base font-medium leading-[1.35] text-muted">{profile.role}</p>
+        <p class="mb-4 text-base font-medium leading-[1.35] text-muted">
+          {profile.role}
+        </p>
         <h1
-          class="mb-10 max-w-[800px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.85rem]"
+          class="mb-3 max-w-[700px] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] lg:text-[4.9rem] xl:text-[5.15rem]"
         >
           {profile.name}
         </h1>
         <p
-          class="mb-10 line-clamp-2 max-w-[720px] text-2xl leading-snug text-muted md:text-[2.15rem]"
+          class="mb-12 line-clamp-2 max-w-[640px] text-2xl leading-snug text-muted md:text-[1.9rem]"
         >
           {profile.summary}
         </p>
-        <nav aria-label="Social links" class="flex flex-wrap gap-4">
+        <nav aria-label="Social links" class="flex flex-wrap gap-3">
           {profile.socialLinks.map((link) => <ProfileButton link={link} />)}
         </nav>
       </div>
@@ -90,10 +93,15 @@ const schema = {
           <div class="mx-auto w-[min(1120px,calc(100%-32px))]">
             <div class="mb-8 flex items-end justify-between gap-6">
               <div>
-                <p class="mb-3 text-[15px] font-medium leading-[1.35] text-muted md:text-base">Latest</p>
+                <p class="mb-3 text-[15px] font-medium leading-[1.35] text-muted md:text-base">
+                  Latest
+                </p>
                 <h2 class="text-3xl font-semibold">Notes and updates</h2>
               </div>
-              <a class="text-sm font-medium transition-colors hover:text-accent" href="/blog">
+              <a
+                class="text-sm font-medium transition-colors hover:text-accent"
+                href="/blog"
+              >
                 View all
               </a>
             </div>
